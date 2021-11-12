@@ -8,6 +8,7 @@ import {
   Button,
   Alert,
   AlertIcon,
+  Text,
   Heading,
 } from "@chakra-ui/react";
 
@@ -24,6 +25,7 @@ export default function ContactForm() {
       <Heading as="h2" size="md" mt="5">
         Contact Mr. Buckley
       </Heading>
+      <Text my="2">Do you have any questions about CTE at Merit?</Text>
       {success ? (
         <Alert status="success" mt="2">
           <AlertIcon />

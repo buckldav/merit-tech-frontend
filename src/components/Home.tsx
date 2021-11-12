@@ -114,11 +114,20 @@ export default function Home() {
           related to CTE in the state of Utah:
         </Text>
         <UnorderedList my="2" pl="3">
-          <ListItem>Audio/Visual Production</ListItem>
-          <ListItem>Computer Science and Information Technology</ListItem>
-          <ListItem>Culinary Arts and Costume Design</ListItem>
-          <ListItem>Engineering, Robotics, and Woodshop</ListItem>
-          <ListItem>Photography and Graphic Design</ListItem>
+          <ListItem>
+            171,489 students enrolled in CTE courses in the state.
+          </ListItem>
+          <ListItem>
+            96.3% graduation rate for students who are CTE concentrators.
+          </ListItem>
+          <ListItem>
+            63.8% of students who concetrated in a CTE pathway placed in
+            postsecondary education, advanced training, military service, or
+            employment.
+          </ListItem>
+          <ListItem>
+            57,537 CTE Skill Certifications earned in the state.
+          </ListItem>
         </UnorderedList>
       </Box>
     </>

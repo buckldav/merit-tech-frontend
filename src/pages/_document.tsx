@@ -11,7 +11,7 @@ import * as React from "react";
 
 import createEmotionCache from "styles/createEmotionCache";
 
-const APP_NAME = "Merit Cross Country";
+const APP_NAME = "Merit Academy Tech";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -52,7 +52,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="favicon.PNG" />
+          <link rel="icon" href="favicon.ico" />
           <meta name="application-name" content={APP_NAME} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta

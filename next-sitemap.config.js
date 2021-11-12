@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const NextSitemapConfig = {
-  siteUrl: "https://xc.meritacademy.tech",
+  siteUrl: "https://www.meritacademy.tech",
   generateRobotsTxt: true,
 };
 

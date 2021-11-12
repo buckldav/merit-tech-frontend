@@ -1,16 +1,16 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "Merit Cross Country",
+  title: "Merit Academy Tech",
   titleTemplate: "%s",
-  defaultTitle: "Merit Cross Country",
-  description: "Merit Preparatory Academy Cross Country, Knights XC",
-  canonical: "https://xc.meritacademy.tech",
+  defaultTitle: "Merit Academy Tech",
+  description: "Merit Preparatory Academy Technology Courses and Resources",
+  canonical: "https://www.meritacademy.tech",
   openGraph: {
-    url: "https://xc.meritacademy.tech",
-    title: "Merit Cross Country",
-    description: "Merit Preparatory Academy Cross Country, Knights XC",
+    url: "https://www.meritacademy.tech",
+    title: "Merit Academy Tech",
+    description: "Merit Preparatory Academy Technology Courses and Resources",
     images: [],
-    site_name: "Merit XC",
+    site_name: "Merit Academy Tech",
   },
 };
 
