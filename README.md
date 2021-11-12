@@ -1,13 +1,13 @@
 # Merit Academy Tech
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9ba87fc8-6c34-4ad9-b994-ffdc0aaf1a08/deploy-status)](https://app.netlify.com/sites/affectionate-kilby-337f06/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03c4ac42-fb57-4d1d-ab37-f62c914bdff0/deploy-status)](https://app.netlify.com/sites/vibrant-blackwell-f8e516/deploys)
 
 Live site at [https://meritacademy.tech](https://meritacademy.tech).
+Legacy site at [https://legacy.meritacademy.tech](https://legacy.meritacademy.tech).
 
 ## Development
 
 ```bash
 npm install
-echo "API_KEY=<google-sheets-api-readonly>" > .env.local
 npm run dev
 ```

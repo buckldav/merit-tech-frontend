@@ -39,6 +39,12 @@ const Nav = (props: { isMobile: boolean }) => (
       pr={props.isMobile ? "initial" : "5"}
       color={useColorModeValue("brand.600", "brand.200")}
     >
+      <Link href="/projects">Projects</Link>
+    </Box>
+    <Box
+      pr={props.isMobile ? "initial" : "5"}
+      color={useColorModeValue("brand.600", "brand.200")}
+    >
       <a href="https://cs.meritacademy.tech">Courses</a>
     </Box>
     <Box
