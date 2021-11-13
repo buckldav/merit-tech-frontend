@@ -8,7 +8,7 @@ export default function Projects() {
       <Text>
         Student projects have not migrated to this new site yet. Check the{" "}
         <Link
-          href="https://legacy.meritacademy.tech/projects"
+          href="https://meritacademy-legacy.herokuapp.com/"
           color={useColorModeValue("brand.600", "brand.200")}
         >
           legacy site
