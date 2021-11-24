@@ -62,7 +62,7 @@ export default function Home() {
         <Heading as="h2" size="md" my="3" textAlign="center">
           What does CTE look like at Merit?
         </Heading>
-        <Flex direction="column" alignItems="center" m="2">
+        <Flex direction="column" alignItems="center" my="2">
           <Image
             src="/tsa2019_20.jpg"
             width={450}
@@ -99,7 +99,7 @@ export default function Home() {
         <Heading as="h2" size="md" my="3" textAlign="center">
           Why is CTE so cool?
         </Heading>
-        <Flex direction="column" alignItems="center" m="2">
+        <Flex direction="column" alignItems="center" my="2">
           <Image
             src="/culinary.jpg"
             width={450}

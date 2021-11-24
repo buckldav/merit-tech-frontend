@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <>
       <Heading mb="2">Student Projects</Heading>
-      <Text>
+      <Text mb="3">
         Student projects have not migrated to this new site yet. Check the{" "}
         <Link
           href="https://meritacademy-legacy.herokuapp.com/"
@@ -13,9 +13,11 @@ export default function Projects() {
         >
           legacy site
         </Link>
-        .
+        .<br /> They'll be here for the CS Showcase:
       </Text>
-      <Image src="/not-found.svg" width={400} height={300} />
+      <iframe src="/showcase.pdf" height={500} title="CS Showcase 2021">
+        <a href="/showcase.pdf">CS Showcase Flyer</a>
+      </iframe>
     </>
   );
 }
