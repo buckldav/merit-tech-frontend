@@ -40,8 +40,8 @@ export default function Projects() {
   return (
     <>
       <Heading mb="2">Student Projects</Heading>
-      <Text mb="2">Search for a project by title or student name.</Text>
-      <Input onChange={handleFilter} />
+      <Text as="label" htmlFor="search">Search for a project by title or student name.</Text>
+      <Input id="search" mt="2" onChange={handleFilter} placeholder="Search" />
       {searchResults ?
         <List spacing={3} mt="3">
           {searchResults?.map(project => (
@@ -51,7 +51,7 @@ export default function Projects() {
                   <Link href={`/projects/${project.id}`}>
                     <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
                   </Link>
-                </LinkWrapper> : <LinkExternal href={`/projects/${project.id}`}>
+                </LinkWrapper> : <LinkExternal href={project.url}>
                   <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
                 </LinkExternal>
               }
