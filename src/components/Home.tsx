@@ -7,12 +7,11 @@ import {
   Grid,
   UnorderedList,
   ListItem,
-  Link,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import MotionBox from "./motion/Box";
 import Image from "next/image";
 import { useWindowSize } from "hooks";
+import { LinkExternal } from "./my-chakra";
 
 export default function Home() {
   return (
@@ -85,14 +84,13 @@ export default function Home() {
         <Text>
           Explore Merit CTE Courses by visiting a page made by Jacoby Day and
           Allie Erdmann in Web Development class!{" "}
-          <Link
-            color={useColorModeValue("brand.600", "brand.200")}
+          <LinkExternal
             href="https://cte.meritacademy.tech"
             target="_blank"
             rel="noopener noreferrer"
           >
             https://cte.meritacademy.tech
-          </Link>
+          </LinkExternal>
         </Text>
       </Box>
       <Box as="section" py="5">

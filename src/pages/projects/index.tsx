@@ -3,6 +3,7 @@ import { Project } from "../../types/project";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Heading, List, Link, ListItem, Input, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { LinkExternal, LinkWrapper } from "components/my-chakra";
 
 const DESCRIPTION_SLICE_END = 200;
 
@@ -39,16 +40,24 @@ export default function Projects() {
   return (
     <>
       <Heading mb="2">Student Projects</Heading>
+      <Text mb="2">Search for a project by title or student name.</Text>
       <Input onChange={handleFilter} />
       {searchResults ?
         <List spacing={3} mt="3">
           {searchResults?.map(project => (
             <ListItem>
-              <Link href={`/projects/${project.id}`}>
-                <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
-                <Heading as="h4" size="md" mb="2">{project.author}</Heading>
-                <Text>{project.description.slice(0, DESCRIPTION_SLICE_END)}{project.description.length > DESCRIPTION_SLICE_END ? "..." : null}</Text>
-              </Link>
+              {project.embeddable ?
+                <LinkWrapper>
+                  <Link href={`/projects/${project.id}`}>
+                    <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
+                  </Link>
+                </LinkWrapper> : <LinkExternal href={`/projects/${project.id}`}>
+                  <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
+                </LinkExternal>
+              }
+              <Heading as="h4" size="md" mb="2">{project.author}</Heading>
+              <Text>{project.description.slice(0, DESCRIPTION_SLICE_END)}{project.description.length > DESCRIPTION_SLICE_END ? "..." : null}</Text>
+
             </ListItem>
           ))}
         </List>

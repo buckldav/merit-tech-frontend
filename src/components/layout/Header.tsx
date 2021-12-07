@@ -19,6 +19,7 @@ import { FaHamburger } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 import { useRef } from "react";
 import { useWindowSize } from "hooks";
+import { LinkWrapper } from "components/my-chakra";
 
 const Nav = (props: { isMobile: boolean }) => (
   <Flex
@@ -29,30 +30,26 @@ const Nav = (props: { isMobile: boolean }) => (
     mt={props.isMobile ? "initial" : "2"}
     fontSize="lg"
   >
-    <Box
+    <LinkWrapper
       pr={props.isMobile ? "initial" : "5"}
-      color={useColorModeValue("brand.600", "brand.200")}
     >
       <Link href="/">Home</Link>
-    </Box>
-    <Box
+    </LinkWrapper>
+    <LinkWrapper
       pr={props.isMobile ? "initial" : "5"}
-      color={useColorModeValue("brand.600", "brand.200")}
     >
       <Link href="/projects">Projects</Link>
-    </Box>
-    <Box
+    </LinkWrapper>
+    <LinkWrapper
       pr={props.isMobile ? "initial" : "5"}
-      color={useColorModeValue("brand.600", "brand.200")}
     >
       <a href="https://cs.meritacademy.tech">Courses</a>
-    </Box>
-    <Box
+    </LinkWrapper>
+    <LinkWrapper
       pr={props.isMobile ? "initial" : "5"}
-      color={useColorModeValue("brand.600", "brand.200")}
     >
       <a href="https://learn.meritacademy.tech">Learn CS</a>
-    </Box>
+    </LinkWrapper>
   </Flex>
 );
 
@@ -107,7 +104,7 @@ const Header = () => {
       {(useWindowSize().width as number) > 800 ? (
         <Nav isMobile={false} />
       ) : null}
-      <p>{}</p>
+      <p>{ }</p>
     </>
   );
 };
