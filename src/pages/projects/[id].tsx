@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Heading, Text, Button, Box } from "@chakra-ui/react"
+import { Heading, Text, Button, Box, Spinner } from "@chakra-ui/react"
 import { LinkExternal, LinkWrapper, useLinkColor } from 'components/my-chakra'
 import { Project } from "types/project";
 
 export default function ProjectDetail() {
   const [showDescription, setShowDescription] = useState(false);
   const [project, setProject] = useState<Project>();
+  const [loading, setLoading] = useState(true);
   const router = useRouter()
   const { id } = router.query
 
@@ -21,6 +22,7 @@ export default function ProjectDetail() {
           if (data.id) {
             setProject(data)
           }
+          setLoading(false)
         })
         .catch(() => window.location.href = "404")
     }
@@ -40,12 +42,11 @@ export default function ProjectDetail() {
         </Button>
       </>}
     </Text>
-
     {project.project_type === "REPL" ?
       <iframe title={project.title} src={project.url} height={400}></iframe> :
       <Text fontWeight="bold" textAlign="center">This project is available at <LinkExternal href={project.url}>{project.url}</LinkExternal></Text>
     }
-  </> : <>
+  </> : loading ? <Spinner /> : <>
     <Heading textAlign="center" as="h1" size="lg" mb="3">Project {id} not found.</Heading>
     <Box display="flex" justifyContent="center">
       <Button m="0 auto">

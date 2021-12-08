@@ -4,6 +4,7 @@ import { Heading, List, Link, ListItem, Input, Text, Alert, AlertDescription, Al
 import { LinkExternal, LinkWrapper } from "components/my-chakra";
 
 const DESCRIPTION_SLICE_END = 200;
+const SEARCH_RESULTS_SLICE_END = 10;
 
 export default function Projects() {
   const [projectList, setProjectList] = useState<Project[]>();
@@ -60,7 +61,7 @@ export default function Projects() {
       }
       {searchResults ?
         <List spacing={3} mt="3">
-          {searchResults?.map(project => (
+          {searchResults?.slice(0, SEARCH_RESULTS_SLICE_END).map(project => (
             <ListItem>
               {project.project_type === "REPL" ?
                 <LinkWrapper>
