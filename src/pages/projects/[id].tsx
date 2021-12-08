@@ -44,7 +44,7 @@ export default function ProjectDetail() {
     </Text>
     {project.project_type === "REPL" ?
       <iframe title={project.title} src={project.url} height={400}></iframe> :
-      <Text fontWeight="bold" textAlign="center">This project is available at <LinkExternal href={project.url}>{project.url}</LinkExternal></Text>
+      <Text fontWeight="bold" textAlign="center">This project is available at <LinkExternal href={project.url} target="_blank" rel="noopener noreferrer">{project.url}</LinkExternal></Text>
     }
   </> : loading ? <Spinner /> : <>
     <Heading textAlign="center" as="h1" size="lg" mb="3">Project {id} not found.</Heading>

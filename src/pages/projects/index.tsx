@@ -68,7 +68,7 @@ export default function Projects() {
                   <Link href={`/projects/${project.id}`}>
                     <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
                   </Link>
-                </LinkWrapper> : <LinkExternal href={project.url}>
+                </LinkWrapper> : <LinkExternal href={project.url} target="_blank" rel="noopener noreferrer">
                   <Heading as="h3" size="lg" mb="2">{project.title}</Heading>
                 </LinkExternal>
               }
