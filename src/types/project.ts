@@ -4,5 +4,5 @@ export interface Project {
   author: string, 
   description: string,
   url: string,
-  project_type: "REPL" | "WEBSITE" | "WEBGL_GAME"
+  project_type: "GOOGLE_SITE" | "REPL" | "WEBSITE" | "WEBGL_GAME"
 }
