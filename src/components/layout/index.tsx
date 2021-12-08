@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
     <Box margin="0 auto" maxWidth={900} transition="0.5s ease-out">
       <Box margin="8">
         <Header />
-        <Box as="main" marginY={22}>
+        <Box as="main" marginY={22} minHeight="70vh">
           {children}
         </Box>
         <Footer />

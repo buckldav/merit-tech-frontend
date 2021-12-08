@@ -4,5 +4,5 @@ export interface Project {
   author: string, 
   description: string,
   url: string,
-  embeddable: boolean
+  project_type: "REPL" | "WEBSITE" | "WEBGL_GAME"
 }
