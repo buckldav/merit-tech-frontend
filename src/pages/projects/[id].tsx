@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Heading, Text, Button, Box, Spinner } from "@chakra-ui/react"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+} from '@chakra-ui/react'
 import { LinkExternal, LinkWrapper, useLinkColor } from 'components/my-chakra'
-import { Project } from "types/project";
+import { Project, PROJECT_TYPES } from "types/project";
 
 export default function ProjectDetail() {
   const [showDescription, setShowDescription] = useState(false);
@@ -32,6 +38,25 @@ export default function ProjectDetail() {
 
 
   return project ? <>
+    <Breadcrumb mt="-3" mb="5">
+      <BreadcrumbItem>
+        <LinkWrapper>
+          <BreadcrumbLink href='/projects'>Projects</BreadcrumbLink>
+        </LinkWrapper>
+      </BreadcrumbItem>
+
+      <BreadcrumbItem>
+        <LinkWrapper>
+          <BreadcrumbLink href={`/projects?initialType=${project.project_type}`}>{PROJECT_TYPES[project.project_type]}s</BreadcrumbLink>
+        </LinkWrapper>
+      </BreadcrumbItem>
+
+      <BreadcrumbItem isCurrentPage>
+        <LinkWrapper>
+          <BreadcrumbLink href={`/projects/${project.id}`}>{project.title}</BreadcrumbLink>
+        </LinkWrapper>
+      </BreadcrumbItem>
+    </Breadcrumb>
     <Heading as="h2" size="xl" textAlign="center" mb="4">{project.title}</Heading>
     <Heading as="h3" size="md" textAlign="center" mb="3">By: {project.author}</Heading>
     <Text mt="3" mb="5">
@@ -43,7 +68,7 @@ export default function ProjectDetail() {
       </>}
     </Text>
     {project.project_type === "REPL" ?
-      <iframe title={project.title} src={project.url} height={400}></iframe> :
+      <iframe title={project.title} src={project.url} height={500}></iframe> :
       <Text fontWeight="bold" textAlign="center">This project is available at <LinkExternal href={project.url} target="_blank" rel="noopener noreferrer">{project.url}</LinkExternal></Text>
     }
   </> : loading ? <Spinner /> : <>
