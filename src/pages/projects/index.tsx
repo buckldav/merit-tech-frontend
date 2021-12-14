@@ -1,6 +1,6 @@
 import { Project, ProjectType, PROJECT_TYPES } from "../../types/project";
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Flex, Heading, List, Link, ListItem, Input, Text, Alert, AlertDescription, AlertTitle, Stack, Radio, RadioProps, RadioGroup, Button, Box, Badge } from "@chakra-ui/react";
+import { Flex, Heading, List, Link, ListItem, Input, Text, Alert, AlertDescription, AlertTitle, Stack, Radio, RadioProps, RadioGroup, Button, Box, Badge, useToast } from "@chakra-ui/react";
 import { LinkExternal, LinkWrapper, useLinkColor } from "components/my-chakra";
 
 const DESCRIPTION_SLICE_END = 250;
@@ -88,6 +88,9 @@ export default function Projects() {
 
   return (
     <>
+      <Alert background="red.600" marginX="2em" width="calc(100% - 4em)" color="white" as="a" href="https://forms.gle/WNzb4xNL7nsdbi7Y7" target="_blank" rel="noopener noreferrer" position="fixed" bottom={8} left={0}>
+        Click here to vote for your favorite projects! You must vote to win!
+      </Alert>
       <Heading mb="2">Student Projects</Heading>
       {
         projectList?.length === 0 ?
@@ -135,6 +138,7 @@ export default function Projects() {
         : null
       }
       <div style={{ display: "none", visibility: "hidden" }}>{count}</div>
+
     </>
   );
 }

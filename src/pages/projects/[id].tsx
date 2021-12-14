@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Heading, Text, Button, Box, Spinner } from "@chakra-ui/react"
 import {
+  Alert,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -38,6 +39,10 @@ export default function ProjectDetail() {
 
 
   return project ? <>
+
+    <Alert background="red.600" marginX="2em" width="calc(100% - 4em)" color="white" as="a" href="https://forms.gle/WNzb4xNL7nsdbi7Y7" target="_blank" rel="noopener noreferrer" position="fixed" bottom={8} left={0}>
+      Click here to vote for your favorite projects! You must vote to win!
+    </Alert>
     <Breadcrumb mt="-3" mb="5">
       <BreadcrumbItem>
         <LinkWrapper>
@@ -71,6 +76,8 @@ export default function ProjectDetail() {
       <iframe title={project.title} src={project.url} height={500}></iframe> :
       <Text fontWeight="bold" textAlign="center">This project is available at <LinkExternal href={project.url} target="_blank" rel="noopener noreferrer">{project.url}</LinkExternal></Text>
     }
+    <br />
+    <br />
   </> : loading ? <Spinner /> : <>
     <Heading textAlign="center" as="h1" size="lg" mb="3">Project {id} not found.</Heading>
     <Box display="flex" justifyContent="center">
