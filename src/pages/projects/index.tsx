@@ -88,9 +88,9 @@ export default function Projects() {
 
   return (
     <>
-      <Alert background="red.600" marginX="2em" width="calc(100% - 4em)" color="white" as="a" href="https://forms.gle/WNzb4xNL7nsdbi7Y7" target="_blank" rel="noopener noreferrer" position="fixed" bottom={8} left={0}>
+      {/* <Alert background="red.600" marginX="2em" width="calc(100% - 4em)" color="white" as="a" href="https://forms.gle/WNzb4xNL7nsdbi7Y7" target="_blank" rel="noopener noreferrer" position="fixed" bottom={8} left={0}>
         Click here to vote for your favorite projects! You must vote to win!
-      </Alert>
+      </Alert> */}
       <Heading mb="2">Student Projects</Heading>
       {
         projectList?.length === 0 ?
