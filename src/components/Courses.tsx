@@ -37,7 +37,7 @@ export default function Courses(
     infinite: true,
     autoplay: true,
     speed: 500,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 7000,
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
@@ -157,6 +157,7 @@ export default function Courses(
                       color={"white"}
                       borderRadius={4}
                       lineHeight={1}
+                      key={index}
                     >
                       {tag.content}
                     </Badge>

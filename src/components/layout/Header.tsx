@@ -21,13 +21,12 @@ import { useRef, useEffect, useState } from "react";
 import { LinkWrapper, useLinkColor } from "components/my-chakra";
 import Footer from "./Footer";
 import { getCSWordOfDay, WikiEntry } from "cs-wiki";
+import { useRouter } from "next/router";
 
 const shadowProps = {
   boxShadow: "lg",
   // outline: "2px solid transparent"
 };
-
-const commonHeaderProps = {};
 
 const MeritHeading = (props: { isMobile: boolean }) => (
   <Box>
@@ -245,13 +244,14 @@ const MobileHeader = () => {
 };
 
 const Header = (props: { isMobile: boolean }) => {
+  const router = useRouter();
   useEffect(() => {
-    if (window.location.pathname === "/") {
+    if (router.pathname === "/") {
       document.body.id = "home";
     } else {
       document.body.id = "";
     }
-  });
+  }, [router.pathname]);
   return props.isMobile ? <DesktopHeader /> : <MobileHeader />;
 };
 

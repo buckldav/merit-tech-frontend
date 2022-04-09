@@ -24,7 +24,7 @@ const HomePage = (
         templateColumns={
           (useWindowSize().width as number) > 800 ? "3fr 1fr" : "1fr"
         }
-        gap={12}
+        gap={(useWindowSize().width as number) > 800 ? 12 : 0}
       >
         <GridItem>
           <Article project={props.project}>
