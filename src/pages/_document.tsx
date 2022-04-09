@@ -8,12 +8,17 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import * as React from "react";
+import { withRouter, useRouter, NextRouter } from "next/router";
+
+interface WithRouterProps extends Document {
+  router: NextRouter;
+}
 
 import createEmotionCache from "styles/createEmotionCache";
 
 const APP_NAME = "Merit Academy Tech";
 
-class MyDocument extends Document {
+class MyDocument extends Document<WithRouterProps> {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
     const cache = createEmotionCache();
@@ -73,7 +78,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/app-icon.png" /> */}
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <body>
+        <body id={this.props.router?.pathname === "/" ? "home" : ""}>
           <Main />
           <NextScript />
         </body>

@@ -25,39 +25,50 @@ import { getCSWordOfDay, WikiEntry } from "cs-wiki";
 const shadowProps = {
   boxShadow: "lg",
   // outline: "2px solid transparent"
-}
+};
 
-const commonHeaderProps = {
+const commonHeaderProps = {};
 
-}
-
-const MeritHeading = (props: { isMobile: boolean }) => (<Box>
-  <Heading as="h1" size="lg" textTransform="lowercase" mt={props.isMobile ? 0 : -5}>
-    <Link href="/">{props.isMobile ? <>Merit Academy Tech</> : <>Merit Academy Technology</>}</Link>
-  </Heading>
-  {!props.isMobile && <Text position="absolute" fontSize="sm">Home of Merit Academy's CS and IT courses.</Text>}
-</Box>
-)
+const MeritHeading = (props: { isMobile: boolean }) => (
+  <Box>
+    <Heading
+      as="h1"
+      size="lg"
+      textTransform="lowercase"
+      mt={props.isMobile ? 0 : -5}
+    >
+      <Link href="/">
+        {props.isMobile ? (
+          <>Merit Academy Tech</>
+        ) : (
+          <>Merit Academy Technology</>
+        )}
+      </Link>
+    </Heading>
+    {!props.isMobile && (
+      <Text position="absolute" fontSize="sm">
+        Home of Merit Academy's CS and IT courses.
+      </Text>
+    )}
+  </Box>
+);
 
 const Nav = (props: { isMobile: boolean }) => {
   const [word, setWord] = useState<WikiEntry>();
   const [readMore, setReadMore] = useState<boolean>();
 
   useEffect(() => {
-    const word = getCSWordOfDay()
-    setWord(word)
-    setReadMore(word.definitions.join().length <= 200)
-  }, [])
+    const word = getCSWordOfDay();
+    setWord(word);
+    setReadMore(word.definitions.join().length <= 200);
+  }, []);
 
   return (
     <Box>
-      <Heading as="h2" size="md" marginY={4}>Navigation</Heading>
-      <Flex
-        as="nav"
-        align="left"
-        direction="column"
-        fontSize="lg"
-      >
+      <Heading as="h2" size="md" marginY={4}>
+        Navigation
+      </Heading>
+      <Flex as="nav" align="left" direction="column" fontSize="lg">
         <LinkWrapper>
           <Link href="/">Home</Link>
         </LinkWrapper>
@@ -71,13 +82,10 @@ const Nav = (props: { isMobile: boolean }) => {
           <a href="https://learn.meritacademy.tech">Learn CS</a>
         </LinkWrapper>
       </Flex>
-      <Heading as="h2" size="md" marginY={4}>External Links</Heading>
-      <Flex
-        as="nav"
-        align="left"
-        direction="column"
-        fontSize="lg"
-      >
+      <Heading as="h2" size="md" marginY={4}>
+        External Links
+      </Heading>
+      <Flex as="nav" align="left" direction="column" fontSize="lg">
         <LinkWrapper>
           <a href="https://meritacademy.instructure.com">Canvas</a>
         </LinkWrapper>
@@ -91,45 +99,114 @@ const Nav = (props: { isMobile: boolean }) => {
           </a>
         </LinkWrapper>
       </Flex>
-      <Heading as="h2" size="md" marginY={4}>Tech Word of the Day</Heading>
-      {word && <>
-        <Text fontWeight="semibold" mb={2}>{word.term}</Text>
-        {!readMore && word.definitions.join().length > 200 ? <>
-          <Box position="relative" fontSize="sm" height="calc(1.5em * 5)" overflowY="hidden" _after={{ padding: "0 0.125em", content: '"..."', position: "absolute", bottom: 0, right: 0, background: useColorModeValue("white", "blue.900") }}>
-            {word.definitions?.map((meaning, i) =>
-              <Text fontSize="sm" mb={i === word.definitions.length - 1 ? 4 : 2}>{meaning}</Text>
-            )}
-          </Box>
-          <Button onClick={() => setReadMore(true)} variant="link" color={useLinkColor()} fontWeight="medium">Read More &gt;</Button>
-        </> :
-          word.definitions?.map((meaning, i) =>
-            <Text fontSize="sm" mb={i === word.definitions.length - 1 ? 4 : 2}>{meaning}</Text>
+      <Heading as="h2" size="md" marginY={4}>
+        Tech Word of the Day
+      </Heading>
+      {word && (
+        <>
+          <Text fontWeight="semibold" mb={2}>
+            {word.term}
+          </Text>
+          {!readMore && word.definitions.join().length > 200 ? (
+            <>
+              <Box
+                position="relative"
+                fontSize="sm"
+                height="calc(1.5em * 5)"
+                overflowY="hidden"
+              >
+                {word.definitions?.map((meaning, i) => (
+                  <Text
+                    fontSize="sm"
+                    mb={i === word.definitions.length - 1 ? 4 : 2}
+                  >
+                    {meaning}
+                  </Text>
+                ))}
+              </Box>
+              <Button
+                onClick={() => setReadMore(true)}
+                variant="link"
+                color={useLinkColor()}
+                fontWeight="medium"
+              >
+                Read More &gt;
+              </Button>
+            </>
+          ) : (
+            word.definitions?.map((meaning, i) => (
+              <Text
+                fontSize="sm"
+                mb={i === word.definitions.length - 1 ? 4 : 2}
+              >
+                {meaning}
+              </Text>
+            ))
           )}
-      </>}
+        </>
+      )}
     </Box>
   );
-}
+};
 
 const DesktopHeader = () => (
   <>
-    <Box as="header" flex={0} paddingInline={6} paddingY={4} borderBottomWidth="1px" background={useColorModeValue("white", "blue.900")} zIndex={100} position="fixed" top="0" width="full">
+    <Box
+      as="header"
+      flex={0}
+      paddingInline={6}
+      paddingY={4}
+      borderBottomWidth="1px"
+      background={useColorModeValue("white", "blue.900")}
+      zIndex={100}
+      position="fixed"
+      top="0"
+      width="full"
+    >
       <Flex justify="space-between" align="center">
         <MeritHeading isMobile={false} />
         <ThemeToggle />
       </Flex>
     </Box>
-    <Box display="block" paddingX={6} paddingY={2} flex={1} overflow="auto" width="xs" borderRightWidth="1px" height="100%" maxHeight="calc(100vh - 73px)" {...shadowProps} background={useColorModeValue("white", "blue.900")} zIndex={100} position="fixed" top="73px">
+    <Box
+      display="block"
+      paddingX={6}
+      paddingY={2}
+      flex={1}
+      overflow="auto"
+      width="xs"
+      borderRightWidth="1px"
+      height="100%"
+      maxHeight="calc(100vh - 73px)"
+      {...shadowProps}
+      background={useColorModeValue("white", "blue.900")}
+      zIndex={100}
+      position="fixed"
+      top="73px"
+    >
       <Nav isMobile={false} />
     </Box>
   </>
-)
+);
 
 const MobileHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <Flex as="header" justify="space-between" align="center" paddingInline={6} paddingY={4} borderBottomWidth="1px" background={useColorModeValue("white", "blue.900")} zIndex={100} position="fixed" top="0" width="full">
+    <Flex
+      as="header"
+      justify="space-between"
+      align="center"
+      paddingInline={6}
+      paddingY={4}
+      borderBottomWidth="1px"
+      background={useColorModeValue("white", "blue.900")}
+      zIndex={100}
+      position="fixed"
+      top="0"
+      width="full"
+    >
       <MeritHeading isMobile={true} />
       <Box marginLeft="auto">
         <IconButton
@@ -149,7 +226,11 @@ const MobileHeader = () => {
         >
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerBody display="flex" flexDirection="column" justifyContent="space-between">
+            <DrawerBody
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-between"
+            >
               <Nav isMobile={true} />
               <Flex justify="space-between" width="full" mb={2}>
                 <Footer isMobile={true} />
@@ -159,13 +240,19 @@ const MobileHeader = () => {
           </DrawerContent>
         </Drawer>
       </Box>
-    </Flex >
-  )
-}
+    </Flex>
+  );
+};
 
-const Header = (props: { isMobile: boolean }) => (
-  props.isMobile ? <DesktopHeader /> : <MobileHeader />
-);
+const Header = (props: { isMobile: boolean }) => {
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      document.body.id = "home";
+    } else {
+      document.body.id = "";
+    }
+  });
+  return props.isMobile ? <DesktopHeader /> : <MobileHeader />;
+};
 
 export default Header;
-

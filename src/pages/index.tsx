@@ -6,13 +6,26 @@ import { Article, Aside } from "components/Home";
 import Courses from "components/Courses";
 import { Project } from "types/project";
 import { Course } from "types/course";
+import { useWindowSize } from "hooks";
 
 const HomePage = (
   props: PropsWithChildren<{ project: Project; courses: Array<Course> }>
 ) => {
   return (
-    <Box mb={8} w="full">
-      <Grid templateRows="1fr" templateColumns="3fr 1fr" gap={12}>
+    <Box
+      mb={8}
+      w="full"
+      minWidth={(useWindowSize().width as number) > 800 ? "900px" : 0}
+    >
+      <Grid
+        templateRows={
+          (useWindowSize().width as number) > 800 ? "1fr" : "auto auto"
+        }
+        templateColumns={
+          (useWindowSize().width as number) > 800 ? "3fr 1fr" : "1fr"
+        }
+        gap={12}
+      >
         <GridItem>
           <Article project={props.project}>
             <Courses courses={props.courses} />

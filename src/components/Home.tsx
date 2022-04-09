@@ -83,11 +83,11 @@ export function Article(
 
   return (
     <article>
-      <Heading as="h1" size="lg">
+      <Heading as="h1" size="lg" textAlign={"center"}>
         Featured Student Project
       </Heading>
       {project && (
-        <Box my={5}>
+        <Flex flexDirection="column" align="center" my={5}>
           {project.project_type === "REPL" ? (
             <LinkWrapper>
               <Link href={`/projects/${project.id}`}>
@@ -113,11 +113,13 @@ export function Article(
             </Heading>
             <Badge as="div">{PROJECT_TYPES[project.project_type]}</Badge>
           </Stack>
-          <Text mb="4">{project.description}</Text>
+          <Text mb="4" maxW={600} textAlign="center">
+            {project.description}
+          </Text>
           <Button as="a" href="/projects">
             Check out more student projects here!
           </Button>
-        </Box>
+        </Flex>
       )}
 
       {props.children}
@@ -126,7 +128,15 @@ export function Article(
         Class Project - Library App
       </Heading>
       <Box my={5}>
-        <Text>
+        <Box float="right" px={2} pb={2} m={0}>
+          <Image
+            src="/library.webp"
+            width="180"
+            height="100"
+            alt="Library Books"
+          />
+        </Box>
+        <Text mb={2}>
           Students in the{" "}
           <LinkExternal href="https://cs.meritacademy.tech/#/disclosure?name=web-development-capstone">
             Web Development Capstone
@@ -140,21 +150,12 @@ export function Article(
           development, data modelling with an ORM, and cron jobs for tasks like
           email.
         </Text>
-      </Box>
-
-      <Heading as="h2" size="md">
-        Where Are They Now?
-      </Heading>
-      <Box my={5}>
         <Text>
-          Students in the Web Development Capstone course at Merit are always
-          looking for cool projects to do that have real-world connections. In
-          collaboration with the English department, we decided to create a new
-          library checkout system for our school.&nbsp;
-          <b>Bryson Day</b>, <b>Eduardo Gutierrez</b>, and <b>Michael Dyck</b>{" "}
-          stepped up to the challenge and learned token authentication, API
-          development, data modelling with an ORM, and cron jobs for tasks like
-          email.
+          To check out their work, visit{" "}
+          <LinkExternal href="https://library.meritacademy.tech">
+            https://library.meritacademy.tech
+          </LinkExternal>
+          .
         </Text>
       </Box>
     </article>
