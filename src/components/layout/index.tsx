@@ -11,13 +11,21 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  return (<>
-    <Header isMobile={useWindowSize().width as number > 800} />
-    <Box as="main" mt="73px" minHeight="calc(100vh - 73px)" marginLeft={useWindowSize().width as number > 800 ? "320px" : 0} px={6} py={4}>
-      {children}
-      {useWindowSize().width as number > 800 && <Footer isMobile={false} />}
-    </Box>
-  </>
+  return (
+    <>
+      <Header isMobile={(useWindowSize().width as number) > 800} />
+      <Box
+        as="main"
+        mt="73px"
+        minHeight="calc(100vh - 73px)"
+        marginLeft={(useWindowSize().width as number) > 800 ? "320px" : 0}
+        px={6}
+        py={4}
+      >
+        {children}
+        {(useWindowSize().width as number) > 800 && <Footer isMobile={false} />}
+      </Box>
+    </>
   );
 };
 

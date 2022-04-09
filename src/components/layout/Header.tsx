@@ -31,10 +31,12 @@ const commonHeaderProps = {
 
 }
 
-const MeritHeading = (props: { isMobile: boolean }) => (
-  <Heading as="h1" size="lg" textTransform="lowercase">
+const MeritHeading = (props: { isMobile: boolean }) => (<Box>
+  <Heading as="h1" size="lg" textTransform="lowercase" mt={props.isMobile ? 0 : -5}>
     <Link href="/">{props.isMobile ? <>Merit Academy Tech</> : <>Merit Academy Technology</>}</Link>
   </Heading>
+  {!props.isMobile && <Text position="absolute" fontSize="sm">Home of Merit Academy's CS and IT courses.</Text>}
+</Box>
 )
 
 const Nav = (props: { isMobile: boolean }) => {
@@ -89,7 +91,7 @@ const Nav = (props: { isMobile: boolean }) => {
           </a>
         </LinkWrapper>
       </Flex>
-      <Heading as="h2" size="md" marginY={4}>Word of the Day</Heading>
+      <Heading as="h2" size="md" marginY={4}>Tech Word of the Day</Heading>
       {word && <>
         <Text fontWeight="semibold" mb={2}>{word.term}</Text>
         {!readMore && word.definitions.join().length > 200 ? <>
