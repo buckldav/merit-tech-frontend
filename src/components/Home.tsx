@@ -16,6 +16,7 @@ import { PropsWithChildren, ReactNode, useEffect } from "react";
 import { LinkExternal, LinkWrapper } from "./my-chakra";
 import { Project, PROJECT_TYPES } from "types/project";
 import Link from "next/link";
+import Alumni from "./Alumni";
 
 export function Aside() {
   return (
@@ -123,6 +124,8 @@ export function Article(
       )}
 
       {props.children}
+
+      <Alumni />
 
       <Heading as="h2" size="md">
         Class Project - Library App
