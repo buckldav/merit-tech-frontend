@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import ContactForm from "components/ContactForm";
 import { Article, Aside } from "components/Home";
 import Courses from "components/Courses";
+import Flyer from "components/Flyer";
 import { Project } from "types/project";
 import { Course } from "types/course";
 import { useWindowSize } from "hooks";
@@ -28,7 +29,8 @@ const HomePage = (
       >
         <GridItem>
           <Article project={props.project}>
-            <Courses courses={props.courses} />
+            {/* <Courses courses={props.courses} /> */}
+            <Flyer />
           </Article>
         </GridItem>
         <GridItem>
