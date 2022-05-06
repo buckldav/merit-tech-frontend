@@ -13,7 +13,8 @@ import {
   Button,
   BoxProps,
 } from "@chakra-ui/react";
-import { FaCheckCircle } from "react-icons/fa";
+import { GiGraduateCap } from "react-icons/gi";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { Alum } from "types/alumni";
 import { LinkExternal, LinkWrapper } from "./my-chakra";
 import Link from "next/link";
@@ -105,11 +106,11 @@ export default function Alumni() {
           >
             <List spacing={3} textAlign="start" px={12}>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
+                <ListIcon as={GiGraduateCap} color={useColorModeValue("red.600", "red.200")} />
                 {colleges} students went on to study CS/IT in college.
               </ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
+                <ListIcon as={GiGraduateCap} color={useColorModeValue("red.600", "red.200")} />
                 Pipeline to{" "}
                 <LinkExternal href="https://neumont.edu">
                   Neumont College of CS
@@ -147,11 +148,11 @@ export default function Alumni() {
             >
               <List spacing={3} textAlign="start" px={12}>
                 <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
+                  <ListIcon as={AiOutlineFundProjectionScreen} color={useColorModeValue("blue.900", "blue.200")} />
                   {pathways} students completed a technology CTE Pathway.
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
+                  <ListIcon as={AiOutlineFundProjectionScreen} color={useColorModeValue("blue.900", "blue.200")} />
                   <LinkExternal href="/projects">
                     Project-based learning
                   </LinkExternal>
