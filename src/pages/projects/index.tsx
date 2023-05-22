@@ -92,9 +92,7 @@ export default function Projects() {
       })
         .then(async (res) => {
           const data = await res.json();
-          const projectList = (data as Project[]).filter(
-            (p) => p.date_created >= "2022-01-01"
-          );
+          const projectList = data as Project[];
           setProjectList(projectList);
           setSearchResults(shuffle(projectList));
           const initialType = window?.location.search.split("initialType=");
