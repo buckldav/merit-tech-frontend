@@ -1351,7 +1351,7 @@ export default function route(req: NextApiRequest, res: NextApiResponse) {
       title: "Jello Parkour",
       author: "Elise Hall",
       description: "You a Jello. Collect the fruits to win.",
-      url: "https://storage.googleapis.com/merit-web-gl/jello-parkour-v1.0.0/index.html",
+      url: "https://storage.googleapis.com/merit-web-gl/jello-parkour-v1.1.0/index.html",
       project_type: "WEBGL_GAME",
       date_created: "2023-05-22",
     },
