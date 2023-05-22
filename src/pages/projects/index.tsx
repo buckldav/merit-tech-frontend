@@ -87,7 +87,7 @@ export default function Projects() {
 
   useEffect(() => {
     async function getProjects() {
-      fetch("https://meritacademy.herokuapp.com/api/projects/", {
+      fetch("/api/projects/", {
         method: "GET",
       })
         .then(async (res) => {

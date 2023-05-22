@@ -43,12 +43,9 @@ export default function Alumni() {
 
   useEffect(() => {
     async function getAlumni() {
-      const res = await fetch(
-        "https://meritacademy.herokuapp.com/api/alumni/",
-        {
-          method: "GET",
-        }
-      );
+      const res = await fetch("/api/alumni/", {
+        method: "GET",
+      });
       const data = await res.json();
       setAlumni(data);
       console.log(data);
@@ -106,11 +103,17 @@ export default function Alumni() {
           >
             <List spacing={3} textAlign="start" px={12}>
               <ListItem>
-                <ListIcon as={GiGraduateCap} color={useColorModeValue("red.600", "red.200")} />
+                <ListIcon
+                  as={GiGraduateCap}
+                  color={useColorModeValue("red.600", "red.200")}
+                />
                 {colleges} students went on to study CS/IT in college.
               </ListItem>
               <ListItem>
-                <ListIcon as={GiGraduateCap} color={useColorModeValue("red.600", "red.200")} />
+                <ListIcon
+                  as={GiGraduateCap}
+                  color={useColorModeValue("red.600", "red.200")}
+                />
                 Pipeline to{" "}
                 <LinkExternal href="https://neumont.edu">
                   Neumont College of CS
@@ -148,11 +151,17 @@ export default function Alumni() {
             >
               <List spacing={3} textAlign="start" px={12}>
                 <ListItem>
-                  <ListIcon as={AiOutlineFundProjectionScreen} color={useColorModeValue("blue.900", "blue.200")} />
+                  <ListIcon
+                    as={AiOutlineFundProjectionScreen}
+                    color={useColorModeValue("blue.900", "blue.200")}
+                  />
                   {pathways} students completed a technology CTE Pathway.
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={AiOutlineFundProjectionScreen} color={useColorModeValue("blue.900", "blue.200")} />
+                  <ListIcon
+                    as={AiOutlineFundProjectionScreen}
+                    color={useColorModeValue("blue.900", "blue.200")}
+                  />
                   <LinkExternal href="/projects">
                     Project-based learning
                   </LinkExternal>

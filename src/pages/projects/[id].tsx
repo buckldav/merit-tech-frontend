@@ -21,7 +21,7 @@ export default function ProjectDetail() {
 
   useEffect(() => {
     async function getProject(id: string | string[] | undefined) {
-      fetch("https://meritacademy.herokuapp.com/api/projects/" + id, {
+      fetch("/api/projects/" + id, {
         method: "GET",
       })
         .then(async (res) => {

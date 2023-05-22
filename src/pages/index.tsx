@@ -42,14 +42,16 @@ const HomePage = (
   );
 };
 
-HomePage.getInitialProps = async () => {
-  const res = await fetch(
-    "https://meritacademy.herokuapp.com/api/projects/42/"
-  );
-  const json = await res.json();
-  const resC = await fetch("https://meritacademy.herokuapp.com/api/courses/");
+export const getServerSideProps = async () => {
+  const res = await fetch(process.env.API_URL + "/api/projects/");
+  let json = await res.json();
+  // get random project
+  json = json[Math.floor(Math.random() * json.length)];
+  const resC = await fetch(process.env.API_URL + "/api/courses/");
   const jsonC = await resC.json();
-  return { project: json as Project, courses: jsonC as Array<Course> };
+  return {
+    props: { project: json as Project, courses: jsonC as Array<Course> },
+  };
 };
 
 export default HomePage;
