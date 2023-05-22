@@ -1336,5 +1336,24 @@ export default function route(req: NextApiRequest, res: NextApiResponse) {
       project_type: "WEBGL_GAME",
       date_created: "2023-05-22",
     },
+    {
+      id: 202,
+      title: "ChessTower",
+      author: "Hudson Condie",
+      description:
+        "A game where you get skills. It is an auto-battler so uh I don't know uh.",
+      url: "https://storage.googleapis.com/merit-web-gl/chesstower-v1.0.0/index.html",
+      project_type: "WEBGL_GAME",
+      date_created: "2023-05-22",
+    },
+    {
+      id: 203,
+      title: "Jello Parkour",
+      author: "Elise Hall",
+      description: "You a Jello. Collect the fruits to win.",
+      url: "https://storage.googleapis.com/merit-web-gl/jello-parkour-v1.0.0/index.html",
+      project_type: "WEBGL_GAME",
+      date_created: "2023-05-22",
+    },
   ]);
 }
