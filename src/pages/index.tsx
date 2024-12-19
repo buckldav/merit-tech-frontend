@@ -46,8 +46,9 @@ export const getServerSideProps = async () => {
   const res = await fetch(process.env.API_URL + "/api/projects/");
   const json: Array<Project> = await res.json();
   // get random webgl project
-  const filtered = json.filter((proj) => proj.project_type === "WEBGL_GAME");
-  const proj = [Math.floor(Math.random() * filtered.length)];
+  // const filtered = json.filter((proj) => proj.project_type === "WEBGL_GAME");
+  // const proj = [Math.floor(Math.random() * filtered.length)];
+  const proj = json.find((val) => val.id === 42)!;
   const resC = await fetch(process.env.API_URL + "/api/courses/");
   const jsonC = await resC.json();
   return {
