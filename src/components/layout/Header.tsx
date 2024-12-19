@@ -75,10 +75,10 @@ const Nav = (props: { isMobile: boolean }) => {
           <Link href="/projects">Projects</Link>
         </LinkWrapper>
         <LinkWrapper>
-          <a href="https://cs.meritacademy.tech">Courses</a>
+          <a href="/courses">Courses</a>
         </LinkWrapper>
         <LinkWrapper>
-          <a href="https://learn.meritacademy.tech">Learn CS</a>
+          <a href="https://cs.dbuckley.dev">Learn CS</a>
         </LinkWrapper>
       </Flex>
       <Heading as="h2" size="md" marginY={4}>

@@ -9,9 +9,7 @@ import { Project } from "types/project";
 import { Course } from "types/course";
 import { useWindowSize } from "hooks";
 
-const HomePage = (
-  props: PropsWithChildren<{ project: Project; courses: Array<Course> }>
-) => {
+const CoursesPage = (props: PropsWithChildren<{ courses: Array<Course> }>) => {
   return (
     <Box
       mb={8}
@@ -28,10 +26,8 @@ const HomePage = (
         gap={(useWindowSize().width as number) > 800 ? 12 : 0}
       >
         <GridItem>
-          <Article project={props.project}>
-            <Courses courses={props.courses} />
-            {/* <Flyer /> */}
-          </Article>
+          <Courses courses={props.courses} />
+          {/* <Flyer /> */}
         </GridItem>
         <GridItem>
           <Aside />
@@ -43,16 +39,11 @@ const HomePage = (
 };
 
 export const getServerSideProps = async () => {
-  const res = await fetch(process.env.API_URL + "/api/projects/");
-  const json: Array<Project> = await res.json();
-  // get random webgl project
-  const filtered = json.filter((proj) => proj.project_type === "WEBGL_GAME");
-  const proj = [Math.floor(Math.random() * filtered.length)];
   const resC = await fetch(process.env.API_URL + "/api/courses/");
   const jsonC = await resC.json();
   return {
-    props: { project: proj, courses: jsonC as Array<Course> },
+    props: { courses: jsonC as Array<Course> },
   };
 };
 
-export default HomePage;
+export default CoursesPage;

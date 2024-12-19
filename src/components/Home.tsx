@@ -61,7 +61,7 @@ export function Aside() {
           <ListItem>Engineering, Robotics, and Woodshop</ListItem>
           <ListItem>Photography and Graphic Design</ListItem>
         </UnorderedList>
-        <Text>
+        {/* <Text>
           Explore Merit CTE Courses by visiting a page made by Jacoby Day and
           Allie Erdmann in Web Development class!{" "}
           <LinkExternal
@@ -71,7 +71,7 @@ export function Aside() {
           >
             https://cte.meritacademy.tech
           </LinkExternal>
-        </Text>
+        </Text> */}
       </Box>
     </aside>
   );
@@ -140,26 +140,22 @@ export function Article(
           />
         </Box>
         <Text mb={2}>
-          Students in the{" "}
-          <LinkExternal href="https://cs.meritacademy.tech/#/disclosure?name=web-development-capstone">
-            Web Development Capstone
-          </LinkExternal>{" "}
-          course at Merit are always looking for cool projects to do that have
-          real-world connections. In collaboration with the English department,
-          we decided to create a new library checkout system for our
-          school.&nbsp;
+          Students in the Web Development Capstone course at Merit are always
+          looking for cool projects to do that have real-world connections. In
+          collaboration with the English department, we decided to create a new
+          library checkout system for our school.&nbsp;
           <b>Bryson Day</b>, <b>Eduardo Gutierrez</b>, and <b>Michael Dyck</b>{" "}
           stepped up to the challenge and learned token authentication, API
           development, data modelling with an ORM, and cron jobs for tasks like
           email.
         </Text>
-        <Text>
+        {/* <Text>
           To check out their work, visit{" "}
           <LinkExternal href="https://library.meritacademy.tech">
             https://library.meritacademy.tech
           </LinkExternal>
           .
-        </Text>
+        </Text> */}
       </Box>
     </article>
   );

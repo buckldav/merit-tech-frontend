@@ -19,6 +19,7 @@ import {
   Box,
   Badge,
   useToast,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { LinkExternal, LinkWrapper, useLinkColor } from "components/my-chakra";
 
@@ -37,7 +38,7 @@ const ProjectRadio = (props: React.PropsWithChildren<RadioProps>) => {
 export default function Projects() {
   const [projectList, setProjectList] = useState<Project[]>();
   const [searchResults, setSearchResults] = useState<Project[]>();
-  const [filters, setFilters] = useState<ProjectType>();
+  const [filters, setFilters] = useState<ProjectType | undefined>("WEBGL_GAME");
   const [count, setCount] = useState(0);
 
   const forceUpdate = () => {
@@ -104,7 +105,10 @@ export default function Projects() {
             );
           }
         })
-        .catch(() => setProjectList([]));
+        .catch((e) => {
+          console.log(e);
+          setProjectList([]);
+        });
     }
 
     getProjects();
@@ -137,6 +141,13 @@ export default function Projects() {
             </Button>{" "}
             the results to see new ones!
           </Text>
+          {!filters ? (
+            <Alert status="info" mb={2}>
+              <AlertIcon />
+              Many older projects have been taken down, except for the Unity
+              Games.
+            </Alert>
+          ) : null}
           <RadioGroup
             onChange={(value) => {
               handleFilter(value as ProjectType);
@@ -145,12 +156,13 @@ export default function Projects() {
             value={filters}
           >
             <Flex direction="row" wrap="wrap" gridColumnGap="3">
+              <ProjectRadio value={"WEBGL_GAME"}>Unity Games</ProjectRadio>
               <ProjectRadio value="">All</ProjectRadio>
-              {Object.keys(PROJECT_TYPES).map((key) => (
+              {/* {Object.keys(PROJECT_TYPES).map((key) => (
                 <ProjectRadio value={key}>
                   {PROJECT_TYPES[key as ProjectType]}s
                 </ProjectRadio>
-              ))}
+              ))} */}
             </Flex>
           </RadioGroup>
           <Input

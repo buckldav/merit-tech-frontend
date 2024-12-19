@@ -72,7 +72,7 @@ export default function Alumni() {
           We strive to provide practical learning opportunities both inside and
           outside of class to prepare you for an ever-evolving world.
           <br />
-          Data collected since 2019.
+          Data collected from 2019-2023. 2024 and beyond not added yet.
         </Text>
       </VStack>
       <Stack

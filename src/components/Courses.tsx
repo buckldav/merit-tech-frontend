@@ -51,7 +51,7 @@ export default function Courses(
         </Heading>
         <Text textAlign={"center"} mt={2}>
           We offer a variety of CS and IT courses at Merit.{" "}
-          <LinkExternal href="https://meritprepacademy.org/enrollment/">
+          <LinkExternal href="https://meritprepacademy.org/enroll/">
             Click here to enroll
           </LinkExternal>
           .
